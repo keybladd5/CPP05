@@ -46,13 +46,17 @@ unsigned int const &Bureaucrat::getGrade() const { return (_grade); }
 void Bureaucrat::incrementGrade() 
 { 
 	if ((_grade - 1) >= 1)
-		_grade--; 
+		_grade--;
+	else
+		throw Bureaucrat::GradeTooHighExecption();
 }
 
 void Bureaucrat::decrementGrade() 
 { 
 	if ((_grade + 1) <= 150)
-		_grade++; 
+		_grade++;
+	else
+		throw Bureaucrat::GradeTooLowExecption();
 }
 
 const char *Bureaucrat::GradeTooHighExecption::what() const throw()
