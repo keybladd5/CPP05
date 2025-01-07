@@ -46,23 +46,42 @@ unsigned int const &Bureaucrat::getGrade() const { return (_grade); }
 void Bureaucrat::incrementGrade() 
 { 
 	if ((_grade - 1) >= 1)
-		_grade--; 
+		_grade--;
+	else
+		throw Bureaucrat::GradeTooHighExecption();
 }
 
 void Bureaucrat::decrementGrade() 
 { 
 	if ((_grade + 1) <= 150)
-		_grade++; 
+		_grade++;
+	else
+		throw Bureaucrat::GradeTooLowExecption();
+}
+
+void Bureaucrat::signForm(Form &form)
+{
+	if (form.getItSigned())
+		std::cout << getName() << " couldn't sign " << form.getName() << " form because its already signed" << std::endl;
+	try
+	{
+		form.beSigned(*this);
+		std::cout << getName() << " signed " << form.getName() << " form" << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << getName() << " couldn't sign " << form.getName() << " form because: " << e.what() << std::endl;
+	}
 }
 
 const char *Bureaucrat::GradeTooHighExecption::what() const throw()
 {
-	return ("Bureaucrat cannot be grade bigger than 1.");
+	return ("Bureaucrat cannot be grade bigger than 1");
 }
 
 const char *Bureaucrat::GradeTooLowExecption::what() const throw()
 {
-	return ("Bureaucrat cannot be grade lower than 150.");
+	return ("Bureaucrat cannot be grade lower than 150");
 }
 
 std::ostream& operator<<(std::ostream &os, Bureaucrat const &src)

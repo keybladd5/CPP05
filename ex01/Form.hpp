@@ -23,8 +23,8 @@ class Form
 	private:
 			Form();
 			std::string const	_name;
-			unsigned int 		_requiredGradeSign;
-			unsigned int 		_requiredGradeExec;
+			unsigned int const	_requiredGradeSign;
+			unsigned int const	_requiredGradeExec;
 			bool				_itSigned;
 	public:
 			Form(std::string const, unsigned int , unsigned int );
@@ -35,6 +35,7 @@ class Form
 			std::string const &getName() const;
 			unsigned int const &getRequiredGradeSign() const;
 			unsigned int const &getRequiredGradeExec() const;
+			bool getItSigned() const;
 			void beSigned(Bureaucrat const &);
 
 			class GradeTooHighExecption : public std::exception

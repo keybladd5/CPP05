@@ -28,7 +28,7 @@ NC			=	\033[0m
 YELLOW		=	\033[38;5;190m
 
 #########
-FILES = Bureaucrat main
+FILES = Bureaucrat main Form
 
 SRC = $(addsuffix .cpp, $(FILES))
 

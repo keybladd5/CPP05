@@ -12,23 +12,21 @@
 
 #include "Form.hpp"
 
-Form::Form(std::string const name, unsigned int requiredGradeSign, unsigned int requiredGradeExec) : _name(name)
+Form::Form(std::string const name, unsigned int requiredGradeSign, unsigned int requiredGradeExec) : _name(name), _requiredGradeSign(requiredGradeSign), _requiredGradeExec(requiredGradeExec)
 {
 	std::cout << "Form constructor called\n";
 	if (requiredGradeSign < 1)
 		throw Form::GradeTooHighExecption();
 	else if (requiredGradeSign > 150)
 		throw Form::GradeTooLowExecption();
-	_requiredGradeSign = requiredGradeSign;
 	if (requiredGradeExec < 1)
 		throw Form::GradeTooHighExecption();
 	else if (requiredGradeExec > 150)
 		throw Form::GradeTooLowExecption();
-	_requiredGradeExec = requiredGradeExec;
 	_itSigned = false;
 }
 
-Form::Form(Form const &src) : _name(src._name)
+Form::Form(Form const &src) : _name(src.getName()), _requiredGradeSign(src._requiredGradeSign), _requiredGradeExec(src._requiredGradeExec)
 {
 	*this = src;
 }
@@ -36,10 +34,7 @@ Form::Form(Form const &src) : _name(src._name)
 Form &Form::operator=(Form const &src)
 {
 	if (this != &src)
-	{
-		_requiredGradeSign = src.getRequiredGradeSign();
-		_requiredGradeExec = src.getRequiredGradeExec();
-	}
+		_itSigned = src.getItSigned();
 	return (*this);
 }
 
@@ -54,22 +49,33 @@ unsigned int const &Form::getRequiredGradeSign() const { return (_requiredGradeS
 
 unsigned int const &Form::getRequiredGradeExec() const { return (_requiredGradeExec); }
 
-bool  const Form::getItSigned() const { return (_itSigned); }
+bool Form::getItSigned() const { return (_itSigned); }
 
-
+void Form::beSigned(Bureaucrat const &bureaucrat)
+{
+	if (bureaucrat.getGrade() < getRequiredGradeSign())
+		_itSigned = true;
+	else
+		throw Form::GradeTooLowExecption();
+}
 
 const char *Form::GradeTooHighExecption::what() const throw()
 {
-	return ("Form cannot be grade bigger than 1.");
+	return ("Grade too high for this form.");
 }
 
 const char *Form::GradeTooLowExecption::what() const throw()
 {
-	return ("Form cannot be grade lower than 150.");
+	return ("Grade too low for this form.");
 }
 
 std::ostream& operator<<(std::ostream &os, Form const &src)
 {
-	os << src.getName() << ", form grade to sign " << src.getRequiredGradeSign() << " and form grade to exec " << src.getRequiredGradeExec() << std::endl;
+	os << src.getName() << ", form grade to sign: " << src.getRequiredGradeSign() << ", and form grade to exec: " << src.getRequiredGradeExec();
+	os << ", status: ";
+	if (src.getItSigned() == true)
+		os << "signed.";
+	else
+		os << "unsigned.";
 	return os;
 }
