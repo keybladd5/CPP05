@@ -15,8 +15,18 @@
 
 # include "AForm.hpp"
 
-class PresidentialPardonForm: public AForm
+class PresidentialPardonForm : public AForm
 {
-	PresidentialPardonForm
-}
+	private:
+			std::string _target;
 
+	public:
+			PresidentialPardonForm();
+			PresidentialPardonForm(std::string const &);
+			PresidentialPardonForm(PresidentialPardonForm const &);
+			PresidentialPardonForm &operator=(PresidentialPardonForm const &);
+			~PresidentialPardonForm();
+			void execute(Bureaucrat const &executor);
+};
+
+#endif

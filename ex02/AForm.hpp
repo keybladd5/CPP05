@@ -16,6 +16,8 @@
 # include <iostream>
 # include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class AForm
 {
 	private:
@@ -28,7 +30,7 @@ class AForm
 			AForm(std::string const, unsigned int , unsigned int );
 			AForm(AForm const &);
 			AForm &operator=(AForm const &);
-			~AForm();
+			virtual ~AForm();
 
 			std::string const &getName() const;
 			unsigned int const &getRequiredGradeSign() const;
@@ -42,6 +44,10 @@ class AForm
 				const char* what() const throw();
 			};
 			class GradeTooLowExecption : public std::exception
+			{
+				const char* what() const throw();
+			};
+			class UnsignedExecption : public std::exception
 			{
 				const char* what() const throw();
 			};

@@ -69,6 +69,11 @@ const char *AForm::GradeTooLowExecption::what() const throw()
 	return ("Grade too low for this form.");
 }
 
+const char *AForm::UnsignedExecption::what() const throw()
+{
+	return ("Form cannot execute because is unsigned");
+}
+
 std::ostream& operator<<(std::ostream &os, AForm const &src)
 {
 	os << src.getName() << ", form grade to sign: " << src.getRequiredGradeSign() << ", and form grade to exec: " << src.getRequiredGradeExec();
