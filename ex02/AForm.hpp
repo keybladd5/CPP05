@@ -51,6 +51,10 @@ class AForm
 			{
 				const char* what() const throw();
 			};
+			class GradeTooLowToExExecption : public std::exception
+			{
+				const char* what() const throw();
+			};
 
 
 };

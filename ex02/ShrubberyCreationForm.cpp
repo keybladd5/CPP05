@@ -45,7 +45,7 @@
  void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
  {
 	if (executor.getGrade() > getRequiredGradeExec())
-		throw AForm::GradeTooLowExecption();
+		throw AForm::GradeTooLowToExExecption();
 	else if (!getItSigned())
 		throw AForm::UnsignedExecption();
 	else
@@ -56,11 +56,11 @@
 			std::cout << "(!) ERROR: Unable to create new file. " << std::endl;
 		else
 		{
-			ofs << "         _{\\ _{\\{\\/}/}/}__" << std::endl;
+			ofs << "            _{\\ _{\\{\\/}/}/}__" << std::endl;
 			ofs << "          {/{/\\}{/{/\\}(\\}{/\\} _" << std::endl;
 			ofs << "         {/{/\\}{/{/\\}(_)\\}{/{/\\}  _" << std::endl;
-			ofs << "      {\\{/(\\" << "}\\}{/{/\\}\\}{/){/\\}\\} /\\}" << std::endl;
-			ofs << "     {/{/(_)/}{\\{/)}{\\(_){/}/}/}/}" << std::endl;
+			ofs << "      {\\{/(\\ }\\}{/{/\\}\\}{/){/\\}\\} " << std::endl;
+			ofs << "     {/{/(_)/}{\\{/)}{\\(_){/}/}/}/}>))" << std::endl;
 			ofs << "    _{\\{/{/{\\{/{/(_)/}/}/}{\\(/}/}/}" << std::endl;
 			ofs << "   {/{/{\\{\\{(/}{\\{\\/}/}{\\}(_){\\/}\\}" << std::endl;
 			ofs << "   _{\\{/{\\{/(_)}{/{/{/\\}\\})\\}{/\\}" << std::endl;
@@ -73,16 +73,16 @@
 			ofs << "       (_){/{\\/}{\\{\\/}/}{\\{\\)/}/}(_)" << std::endl;
 			ofs << "         {/{/{\\{\\/}{/{\\{\\{(_)/}" << std::endl;
 			ofs << "          {/{\\{\\{\\/}/}{\\{\\\\}/}" << std::endl;
-			ofs << "           {){/ {\\/}{\\/} \\}\\}" << std::endl;
-			ofs << "           (_)  \\.-'.-/" << std::endl;
-			ofs << "       __...--- |'-.-'| --...__" << std::endl;
-			ofs << "  _...--\"   .-'   |'-.-'|  ' -.  \"\"--..__" << std::endl;
-			ofs << " -\"    ' .  . '    |.'-._| '  . .  '   jro" << std::endl;
-			ofs << " .  '-  '    .--'  | '-.'|    .  '  . '" << std::endl;
+			ofs << "               {\\/}{\\/} \\}\\}" << std::endl;
+			ofs << "                  \\.-'.-/" << std::endl;
+			ofs << "       __...---   |'-.-'| --...__" << std::endl;
+			ofs << "  _...--\"   .-'   |'-.-'|  '   \"\"--..__" << std::endl;
+			ofs << " -\"    ' .  . '   |.'-._| '  . .  '   " << std::endl;
+			ofs << " .  '-  '    .--' | '-.'|    .  '  . '" << std::endl;
 			ofs << "         ' ..     |'-_.-|" << std::endl;
 			ofs << " .  '  .       _.-|-._ -|-._  .  '  ." << std::endl;
 			ofs << "             .'   |'- .-|   '." << std::endl;
-			ofs << " ..-'   ' .  '.   `-._.-�   .'  '  - ." << std::endl;
+			ofs << " ..-'   ' .  '.   `-._.-.   .'  '  - ." << std::endl;
 			ofs << "  .-' '        '-._______.-'     '  ." << std::endl;
 			ofs << "       .      ~," << std::endl;
 			ofs << "   .       .   |\\   .    ' '-." << std::endl;

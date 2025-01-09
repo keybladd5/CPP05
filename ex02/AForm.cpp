@@ -68,6 +68,10 @@ const char *AForm::GradeTooLowExecption::what() const throw()
 {
 	return ("Grade too low for this form.");
 }
+const char *AForm::GradeTooLowToExExecption::what() const throw()
+{
+	return ("Grade too low for execute this form.");
+}
 
 const char *AForm::UnsignedExecption::what() const throw()
 {

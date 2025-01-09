@@ -28,7 +28,7 @@ NC			=	\033[0m
 YELLOW		=	\033[38;5;190m
 
 #########
-FILES = Bureaucrat main AForm ShrubberyCreationForm
+FILES = Bureaucrat main AForm ShrubberyCreationForm PresidentialPardonForm RobotomyRequestForm
 
 SRC = $(addsuffix .cpp, $(FILES))
 
@@ -55,6 +55,7 @@ $(NAME): $(OBJ) Makefile
 clean:
 	@$(RM) $(OBJ) $(DEP)
 	@$(RM) -r $(OBJ_DIR)
+	@rm -rf Arbustos\ paper_shrubbery
 	@echo "${RED}CPP05 ex02 objects removeds${NC}"
 
 fclean: clean

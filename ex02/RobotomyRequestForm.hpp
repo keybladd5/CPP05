@@ -13,6 +13,8 @@
 #ifndef ROBOTOMYREQUESTFORM_HPP
 # define ROBOTOMYREQUESTFORM_HPP
 # include "AForm.hpp"
+# include <cstdlib>
+# include <ctime>
 
 class RobotomyRequestForm : public AForm
 {
@@ -25,7 +27,7 @@ class RobotomyRequestForm : public AForm
 			RobotomyRequestForm(RobotomyRequestForm const &);
 			RobotomyRequestForm &operator=(RobotomyRequestForm const &);
 			~RobotomyRequestForm();
-			void execute(Bureaucrat const &executor);
+			void execute(Bureaucrat const &executor) const;
 };
 
 #endif
