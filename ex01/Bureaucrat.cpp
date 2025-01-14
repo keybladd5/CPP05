@@ -61,8 +61,6 @@ void Bureaucrat::decrementGrade()
 
 void Bureaucrat::signForm(Form &form)
 {
-	if (form.getItSigned())
-		std::cout << getName() << " couldn't sign " << form.getName() << " form because its already signed" << std::endl;
 	try
 	{
 		form.beSigned(*this);
@@ -82,6 +80,10 @@ const char *Bureaucrat::GradeTooHighExecption::what() const throw()
 const char *Bureaucrat::GradeTooLowExecption::what() const throw()
 {
 	return ("Bureaucrat cannot be grade lower than 150");
+}
+const char *Form::FormIsSignedException::what() const throw()
+{
+	return ("Form cannot be signed because is already signed");
 }
 
 std::ostream& operator<<(std::ostream &os, Bureaucrat const &src)

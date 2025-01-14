@@ -55,6 +55,10 @@ class AForm
 			{
 				const char* what() const throw();
 			};
+			class FormIsSignedException : public std::exception
+			{
+				const char* what() const throw();
+			};
 
 
 };

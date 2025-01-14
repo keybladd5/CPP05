@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = bin
+NAME = bin03
 
 #########
 RM = rm -rf
@@ -28,7 +28,7 @@ NC			=	\033[0m
 YELLOW		=	\033[38;5;190m
 
 #########
-FILES = Bureaucrat main AForm ShrubberyCreationForm PresidentialPardonForm RobotomyRequestForm
+FILES = Bureaucrat main AForm ShrubberyCreationForm PresidentialPardonForm RobotomyRequestForm Intern
 
 SRC = $(addsuffix .cpp, $(FILES))
 
@@ -50,17 +50,17 @@ all: $(NAME)
 
 $(NAME): $(OBJ) Makefile
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-	@echo "${PURPLE}CPP05 ex02 binary Compiled${NC}"
+	@echo "${GREEN}CPP05 ex02 binary Compiled${NC}"
 
 clean:
 	@$(RM) $(OBJ) $(DEP)
 	@$(RM) -r $(OBJ_DIR)
-	@rm -rf Arbustos\ paper_shrubbery
-	@echo "${RED}CPP05 ex02 objects removeds${NC}"
+	@rm -rf *_shrubbery
+	@echo "${RED}CPP05 ex03 objects removeds${NC}"
 
 fclean: clean
 	@$(RM) $(NAME)
-	@echo "${RED}CPP05 ex02 binary removed${NC}"
+	@echo "${RED}CPP05 ex03 binary removed${NC}"
 
 re:	fclean all
 

@@ -53,10 +53,12 @@ bool AForm::getItSigned() const { return (_itSigned); }
 
 void AForm::beSigned(Bureaucrat const &bureaucrat)
 {
-	if (bureaucrat.getGrade() < getRequiredGradeSign())
+	if (_itSigned)
+		throw FormIsSignedException();
+	else if (bureaucrat.getGrade() < getRequiredGradeSign())
 		_itSigned = true;
 	else
-		throw AForm::GradeTooLowExecption();
+		throw GradeTooLowExecption();
 }
 
 const char *AForm::GradeTooHighExecption::what() const throw()
@@ -76,6 +78,10 @@ const char *AForm::GradeTooLowToExExecption::what() const throw()
 const char *AForm::UnsignedExecption::what() const throw()
 {
 	return ("Form cannot execute because is unsigned");
+}
+const char *AForm::FormIsSignedException::what() const throw()
+{
+	return ("Form cannot be signed because is already signed");
 }
 
 std::ostream& operator<<(std::ostream &os, AForm const &src)

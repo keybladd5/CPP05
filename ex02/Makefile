@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = bin
+NAME = bin02
 
 #########
 RM = rm -rf
@@ -50,12 +50,12 @@ all: $(NAME)
 
 $(NAME): $(OBJ) Makefile
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-	@echo "${PURPLE}CPP05 ex02 binary Compiled${NC}"
+	@echo "${GREEN}CPP05 ex02 binary Compiled${NC}"
 
 clean:
 	@$(RM) $(OBJ) $(DEP)
 	@$(RM) -r $(OBJ_DIR)
-	@rm -rf Arbustos\ paper_shrubbery
+	@rm -rf *_shrubbery
 	@echo "${RED}CPP05 ex02 objects removeds${NC}"
 
 fclean: clean

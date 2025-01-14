@@ -13,6 +13,9 @@
 #define INTERN_HPP
 
 # include <iostream>
+# include "PresidentialPardonForm.hpp"
+# include "RobotomyRequestForm.hpp"
+# include "ShrubberyCreationForm.hpp"
 
 class Intern
 {
@@ -20,7 +23,12 @@ class Intern
 				Intern();
 				Intern(Intern const &);
 				Intern &operator=(Intern const &);
+				AForm *makeForm(std::string const &, std::string const &);
 				~Intern();
+				class CannotCreateForm : public std::exception
+				{
+					const char* what() const throw();
+				};
 };
 
 #endif

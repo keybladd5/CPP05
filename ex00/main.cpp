@@ -16,7 +16,7 @@
 int main()
 {
 	{
-		std::cout << "\nTest grade 0 on bureaucrat\n"; 
+		std::cout << "\nTest grade 0 on bureaucrat\n\n"; 
 		try
 		{
 			Bureaucrat("billy", 0);
@@ -27,7 +27,7 @@ int main()
 		}
 	}
 	{
-		std::cout << "\nTest grade 151 on bureaucrat\n"; 
+		std::cout << "\nTest grade 151 on bureaucrat\n\n"; 
 		try
 		{
 			Bureaucrat("billy", 151);
@@ -38,7 +38,7 @@ int main()
 		}
 	}
 	{
-		std::cout << "\nTest increment grade on bureaucrat\n"; 
+		std::cout << "\nTest increment grade on bureaucrat\n\n"; 
 		try
 		{
 			Bureaucrat billy("billy", 2);

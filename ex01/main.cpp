@@ -17,7 +17,7 @@
 int main()
 {
 	{
-		std::cout << "\nTest form grade 0\n"; 
+		std::cout << "\nTest form grade 0\n\n"; 
 		try
 		{
 			Form("pay_taxes", 0, 0);
@@ -28,7 +28,7 @@ int main()
 		}
 	}
 	{
-		std::cout << "\nTest form grade 151\n"; 
+		std::cout << "\nTest form grade 151\n\n"; 
 		try
 		{
 			Form("pay_taxes", 151, 151);
@@ -39,10 +39,11 @@ int main()
 		}
 	}
 	{
-		std::cout << "\nTest bureaucrat grade 150 sign form grade 1\n"; 
+		std::cout << "\nTest bureaucrat grade 150 sign form grade 1\n\n"; 
 		try
 		{
 			Bureaucrat billy("billy", 150);
+			std::cout << billy << std::endl;
 			Form form("buy_inditex", 1, 1);
 			std::cout << "There are " << billy << " and " << form << std::endl;
 			billy.signForm(form);
@@ -53,10 +54,11 @@ int main()
 		}
 	}
 	{
-		std::cout << "\nTest bureaucrat grade 1 sign form grade 150\n"; 
+		std::cout << "\nTest bureaucrat grade 1 sign form grade 150\n\n"; 
 		try
 		{
 			Bureaucrat billy("billy", 1);
+			std::cout << billy << std::endl;
 			Form form("pay_taxes", 150, 150);
 			std::cout << "There are " << billy << " and " << form << std::endl;
 			billy.signForm(form);

@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = bin
+NAME = bin00
 
 #########
 RM = rm -rf
@@ -50,7 +50,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ) Makefile
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-	@echo "${PURPLE}CPP05 ex00 binary Compiled${NC}"
+	@echo "${GREEN}CPP05 ex00 binary Compiled${NC}"
 
 clean:
 	@$(RM) $(OBJ) $(DEP)
