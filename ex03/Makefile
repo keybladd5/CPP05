@@ -50,7 +50,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ) Makefile
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-	@echo "${GREEN}CPP05 ex02 binary Compiled${NC}"
+	@echo "${GREEN}CPP05 ex03 binary Compiled${NC}"
 
 clean:
 	@$(RM) $(OBJ) $(DEP)
